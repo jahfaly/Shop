@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Header -->
+  <header class="bg-white shadow p-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Shop</h1>
+    <button id="cart-btn" class="relative">
+      🛒
+      <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1 rounded-full">0</span>
+    </button>
+  </header>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center hidden z-50">
+    <div class="bg-white rounded-lg p-6 w-full max-w-md relative">
+      <h2 class="text-xl font-bold mb-4">Корзина</h2>
+      <ul id="cart-items" class="space-y-2 max-h-64 overflow-y-auto"></ul>
+
+      <hr class="my-4" />
+      <p id="order-error" class="mt-2 text-red-600 font-semibold hidden text-center"></p>
+
+
+      <!-- Order Form -->
+      <form id="order-form" class="space-y-2 w-full">
+        <input type="text" name="name" placeholder="Ваше имя" required class="w-full border p-2 rounded">
+        <input type="tel" name="phone" placeholder="Телефон" required class="w-full border p-2 rounded">
+        <textarea name="address" placeholder="Адрес доставки" required class="w-full border p-2 rounded"></textarea>
+        <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full">Оформить заказ</button>
+      </form>
+
+      <p id="order-confirmation" class="mt-4 text-green-600 font-semibold text-center hidden">
+        Спасибо за заказ! Мы с вами свяжемся.
+      </p>
+
+      <button id="close-cart" class="absolute top-2 right-2 text-gray-500 hover:text-black">✖</button>
+    </div>
+  </div>
+
+  <!-- Banner -->
+  <section class="p-4 text-center bg-blue-100">
+    <h2 class="text-xl font-semibold">Добро пожаловать в наш магазин!</h2>
+    <p>Ознакомьтесь с нашими товарами.</p>
+  </section>
+
+  <!-- Products -->
+  <main class="p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <!-- Beef -->
+    <div class="bg-white p-4 rounded shadow">
+      <img src="img/beef.png" alt="Товар" class="w-full aspect-[4/3] object-contain rounded">
+      <h3 class="mt-2 text-lg font-semibold">Говядина</h3>
+      <p class="text-gray-700">Свежая охлаждённая говядина высшего сорта. Подходит для жарки, тушения и приготовления на гриле. Без добавок и консервантов.</p>
+      <div class="flex justify-between items-center mt-2">
+        <span class="text-green-600 font-bold">3000тг</span>
+        <button class="add-to-cart bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">В корзину</button>
+      </div>
+    </div>
+
+    <!-- Chicken -->
+    <div class="bg-white p-4 rounded shadow">
+      <img src="img/chicken.png" alt="Товар" class="w-full aspect-[4/3] object-contain rounded">
+      <h3 class="mt-2 text-lg font-semibold">Курица</h3>
+      <p class="text-gray-700">Свежая охлаждённая курица, выращенная без гормонов и антибиотиков. Отлично подходит для запекания, варки, жарки и приготовления супов. Мягкое и нежное мясо, богатое белком.</p>
+      <div class="flex justify-between items-center mt-2">
+        <span class="text-green-600 font-bold">2500тг</span>
+        <button class="add-to-cart bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">В корзину</button>
+      </div>
+    </div>
+
+    <!-- Sheep -->
+    <div class="bg-white p-4 rounded shadow">
+      <img src="img/sheep.png" alt="Товар" class="w-full aspect-[4/3] object-contain rounded">
+      <h3 class="mt-2 text-lg font-semibold">Баранина</h3>
+      <p class="text-gray-700">Натуральная баранина высокого качества с насыщенным вкусом. Идеальна для плова, тушения и приготовления на мангале. Без добавок, с сохранением всех полезных свойств мяса.</p>
+      <div class="flex justify-between items-center mt-2">
+        <span class="text-green-600 font-bold">2500тг</span>
+        <button class="add-to-cart bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">В корзину</button>
+      </div>
+    </div>
+
+    <!-- Horse -->
+    <div class="bg-white p-4 rounded shadow">
+      <img src="img/horse.png" alt="Товар" class="w-full aspect-[4/3] object-contain rounded">
+      <h3 class="mt-2 text-lg font-semibold">Конина</h3>
+      <p class="text-gray-700">Натуральная конина, богатая белком и железом. Отличный выбор для приготовления традиционных блюд. Мясо нежное, ароматное и легко усваивается.</p>
+      <div class="flex justify-between items-center mt-2">
+        <span class="text-green-600 font-bold">2500тг</span>
+        <button class="add-to-cart bg-blue-500 text-white px-2 py-1 rounded hover:bg-blue-600">В корзину</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white text-center p-4 mt-8 shadow-inner">
+    &copy; 2025 Shop
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

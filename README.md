@@ -1,5 +1,3 @@
-# 🛒 Shop
+# 🛒 интернет-магазин
 
-Добро пожаловать в мой интернет-магазин!
-
-🔗 [Открыть сайт](https://jahlfay.github.io/Shop/)
+🔗 [Открыть сайт](https://jahfaly.github.io/Shop/)
